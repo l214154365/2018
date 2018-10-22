@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TaskDao">
+<select id="QueryNewTask" resultType="int">
+select Id
+</select>
+<update id="startask" parameterType="String">
+	   update player
+	   set
+	   status="开启" where id = #{id}
+	</update>
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.LoginDao">
+<select id="login" parameterType="String" resultType="com.bean.LoginUser">
+SELECT T.T_Name username,T.T_id user_id,T.T_Pass password,T.D_id ts_type FROM teacher T
+where T.T_id=#{username} and  T.T_Pass=#{password}
+union  
+SELECT  S.S_Name username,S.S_id user_id,S.S_Pass password,S.S_type ts_type FROM student S 
+where S.S_id=#{username} and  S.S_Pass=#{password} 
+</select>
+
+
+
+</mapper>

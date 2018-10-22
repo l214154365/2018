@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.QueryDao">
+
+	<select id="queryclazz" resultType="com.bean.Clazz">
+		select * from clazz where 1=1
+	</select>
+
+	<select id="querycourse" resultType="com.bean.Course">
+		select * from course where 1=1
+	</select>
+
+
+	<select id="selectdp" resultType="com.bean.Department">
+		select * from department where 1=1
+	</select>
+
+
+
+	<select id="selectdpson" resultType="com.bean.Department">
+		select * from department where department_id=#{Id}
+	</select>
+
+
+	<select id="querytotalpage" resultType="int">
+		SELECT COUNT(Id) FROM
+		clazz WHERE 1=1
+	</select>
+
+	<select id="fenye" parameterType="com.bean.Page" resultType="com.bean.Clazz">
+		SELECT * FROM clazz
+		<where>
+			<if test="title!=null">
+				Clazz_Name LIKE CONCAT(CONCAT('%',#{title},'%'))
+			</if>
+		</where>
+		limit #{starpage},#{pagesize}
+	</select>
+
+
+	<select id="querytotalpage1" resultType="int">
+		SELECT COUNT(Id) FROM
+		course WHERE 1=1
+	</select>
+
+	<select id="fenye1" parameterType="com.bean.Page" resultType="com.bean.Course">
+		SELECT * FROM course
+		<where>
+			<if test="title!=null">
+				Course_name LIKE CONCAT(CONCAT('%',#{title},'%'))
+			</if>
+		</where>
+		limit #{starpage},#{pagesize}
+	</select>
+
+	<select id="querytotalpage2" resultType="int">
+		SELECT COUNT(Id) FROM
+		teacher WHERE 1=1
+	</select>
+
+
+	<select id="fenye2" parameterType="com.bean.Page" resultType="com.bean.Teacher">
+		SELECT * FROM teacher
+		<where>
+			<if test="title!=null">
+				T_Name LIKE CONCAT(CONCAT('%',#{title},'%'))
+			</if>
+		</where>
+		limit #{starpage},#{pagesize}
+	</select>
+
+	<select id="querytotalpage3" resultType="int">
+		SELECT COUNT(Id) FROM
+		student WHERE 1=1
+	</select>
+
+
+	<select id="fenye3" parameterType="com.bean.Page" resultType="com.bean.Student">
+		SELECT * FROM student
+		<where>
+			<if test="title!=null">
+				S_Name LIKE CONCAT(CONCAT('%',#{title},'%'))
+			</if>
+		</where>
+		limit #{starpage},#{pagesize}
+	</select>
+
+	
+	<select id="selectcourseByname" parameterType="String"
+		resultType="com.bean.KeBiao">
+		select * from course_view where Clazz_Name=#{clazz_name}
+	</select>
+
+	<select id="selectcourseByname1" parameterType="String"
+		resultType="com.bean.KeBiao">
+		select * from course_view where T_Name=#{teacher_name}
+	</select>
+
+	<select id="selectteacher" parameterType="String" resultType="com.bean.Teacher">
+		select * from teacher where T_id=#{t_id}
+	</select>
+
+
+	<select id="selectstudent" parameterType="String" resultType="com.bean.Student">
+		select * from student where S_id=#{s_id}
+	</select>
+
+	<select id="A1" parameterType="int" resultType="com.bean.Indcator">
+		select * from indicator where In_type=2
+	</select>
+
+	<select id="selectindicator" parameterType="String" resultType="com.bean.Indcator">
+		select * from indicator where in_type=1 or in_type=4
+	</select>
+
+	<select id="selectsindicator" parameterType="String" resultType="com.bean.Indcator">
+		select*from indicator where in_type=1
+	</select>
+
+	<select id="findteachercourse" parameterType="String"
+		resultType="com.bean.textone">
+		select teacher.T_Name,course.Course_name,teacher.T_id from student 
+left join clazz on student.Clazz_Id = clazz.Clazz_Id
+left join teacher_clazz on clazz.Clazz_Id = teacher_clazz.Clazz_id
+left join teacher on teacher_clazz.Teacher_id = teacher.T_id
+left join teacher_course on teacher.T_id = teacher_course.Teacher_id
+left join course on teacher_course.Course_id = course.Course_id
+where student.S_id='15900101'
+	</select>
+
+	<select id="selecttindicator" parameterType="String" resultType="com.bean.Indcator">
+		select*from indicator where in_type=4
+	</select>
+
+	<select id="findteacherfriend" parameterType="String"
+		resultType="com.bean.Teacher">
+		select T_Name,T_id from teacher where T_id='200001' or T_id='200003'
+	</select>
+	<select id="selecttask" parameterType="String" resultType="com.bean.Task">
+		select * from management where Id=#{id}
+	</select>
+	<select id="querytotalpage4" resultType="int">
+		select count(Id) from management where 1=1;
+	</select>
+	<select id="fenye4" parameterType="com.bean.Page" resultType="com.bean.Task">
+		select * from management
+		<where>
+			<if test="title!=null">
+				m_name like concat(concat('%',#{title},'%'))
+			</if>
+		</where>
+		limit #{starpage},#{pagesize}
+	</select>
+	<select id="querystatus" resultType="int">
+		select status from management where Id=1
+	</select>
+	<select id="querystatus_next" resultType="int">
+		select status from management where Id=2
+	</select>
+	<select id="queryscore" parameterType="String" resultType="com.bean.eva_oao">
+	select Total_score,Voted_id from eva_oao
+	</select>
+</mapper>

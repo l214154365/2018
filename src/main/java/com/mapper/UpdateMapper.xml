@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UpdateDao">
+<update id="resetteacherpd" parameterType="String">
+      update teacher
+	   set
+	   T_Pass= #{t_id} where T_id = #{t_id}
+</update>
+
+<update id="resetstudent" parameterType="String">
+      update student
+	   set
+	   S_Pass= #{s_id} where S_id = #{s_id}
+</update>
+
+<update id="updatetea" parameterType="com.bean.Teacher">
+      update teacher
+	   set
+	   T_Name= #{t_Name},
+	   T_Pass=#{t_Pass},
+	   D_id=#{d_id}
+	   where T_id =#{t_id}
+</update>
+
+
+<update id="updatestu" parameterType="com.bean.Student">
+      update student
+	   set
+	   S_Name= #{s_name},
+	   S_Pass=#{s_pass},
+	   Clazz_Id=#{clazz_id}
+	   where S_id =#{s_id}
+</update>
+
+<update id="updatetask" parameterType="com.bean.Task">
+		update management
+		set
+		status=#{status}
+		s_time=#{s_time}
+		e_time=#{e_time}
+		m_name=#{m_name}
+		where
+		Id=#{id}
+</update>
+<update id="updateuserinfo" parameterType="com.bean.LoginUser">
+      update teacher
+	   set
+	   T_Pass=#{password}
+	   where T_id =#{user_id}
+</update>
+
+<update id="updateuserinfo1" parameterType="com.bean.LoginUser">
+      update student
+	   set
+	   S_Pass=#{password}
+	   where S_id =#{user_id}
+</update>
+<update id="updatetaskstatus" parameterType="com.bean.Task">
+		update management
+		  set
+		  status=1
+		  where Id=#{id}
+</update>
+
+<update id="closestatus" parameterType="com.bean.Task">
+		update management
+		  set
+		  status=0
+		  where Id=#{id}
+</update>
+</mapper>

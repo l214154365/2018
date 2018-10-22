@@ -1,0 +1,136 @@
+@font-face {
+	font-family: duanning;
+	src: url("../fonts/duanning.ttf");
+
+}
+body{
+	background: rgba(147,245,177,0.08);
+}
+.span12{
+	background: rgba(147,245,177,0.08);
+	border-radius: 10px;
+}
+.row-tit{
+	font-family: duanning;
+	font-size: 50px;
+	line-height: 140px;
+	letter-spacing: 4px;
+	margin-left: 20px;
+}
+.fa-sign-out{
+	display: inline-block;
+	padding-top: 30px;
+	height: 110px;
+	width: 60px;
+	float: right;
+	cursor: pointer;
+	margin-right: 10px;
+	text-align: center;
+	color: #454545;
+}
+.fa-sign-out:hover{
+	background: rgba(131,193,238,0.98);
+	color: #ffffff;
+}
+.fa-sign-out>p{
+	font-size:15px;text-align: center;letter-spacing: 3px;margin-top: 6px;
+}
+.col-md-12 column{
+	border: solid 1px;
+}
+html,body,.container,.clearfix,.column{
+	width: 100%;
+}
+.span2{
+	margin-top:20px;
+	background: rgba(147,245,177,0.08);
+	border-radius: 10px;
+}
+
+li {
+	list-style:none;
+}
+.top_bar{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.one_bar {
+	display:block;
+	text-align:center;
+	font-size:16px;
+	background: #83c1ee;
+	color:#ffffff;
+	border-bottom:1px solid #ffffff;
+	border-radius:4px;
+	line-height:40px;
+	overflow:hidden;
+	height:40px;
+	width:200px;
+	letter-spacing: 2px;
+	margin: auto;
+}
+.two_bar {
+	display:none;
+}
+
+ul{margin: 0 0 0 0;}
+
+.two_bar li{
+	display:block;
+	text-align:center;
+	font-size:16px;
+	background: #eeeeee;
+	color:#666666;
+	border-bottom:1px solid #83c1ee;
+	border-radius:4px;
+	line-height:40px;
+	overflow:hidden;
+	height:40px;
+	width:200px;
+	letter-spacing: 2px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+.two_bar li:hover{
+	background: #ffffff;
+	color: #83c1ff;
+	letter-spacing: 4px;
+}
+a:link,a:visited,a:hover,a:active {
+	text-decoration:none;
+}
+.span10{
+	margin-top:20px;
+	border-radius: 10px;
+	
+}
+#userinfo{
+	width: 90%;
+	height: 16%;
+	background: white;
+	margin: auto;
+}
+#m_title,#m_title_1{
+	font-family: 华文行楷;
+	margin-top:5px; 
+    
+}
+#m_title_1{
+	font-size:45px;
+	text-align: center;
+}
+
+#updateteainfo{
+	width: 100%;
+	position: absolute;
+	display: none;
+	font-family: 华文行楷;
+	background: rgba(225,255,255,1);
+}
+#cross{
+	 position: absolute;
+	 right: 20px;
+	 top: 8px;	
+	  
+}

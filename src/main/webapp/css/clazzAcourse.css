@@ -1,0 +1,30 @@
+#selectcourse{
+	position: absolute;
+	left: 0;
+	top:0;
+	width: 80%;
+	background: rgba(225,255,255,0.8);
+	height: 30%;	
+	font-family: 华文行楷;
+	display: none;
+	border-radius: 20px;
+}
+#selectclazz{
+	position: absolute;
+	left: 0;
+	top:0;
+	width: 80%;
+	background: rgba(225,255,255,0.8);
+	height: 30%;	
+	font-family: 华文行楷;
+	display: none;
+	border-radius: 20px;
+}
+#aaa{
+	position: relative;
+}
+#cross{
+	 position: absolute;
+	 right: 20px;
+	 top: 8px;	
+}

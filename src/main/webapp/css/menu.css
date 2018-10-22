@@ -1,0 +1,31 @@
+#tree{
+	width: 100%;
+	float: right;
+	display: block;
+}
+#menuinfo,#deletemenu{
+	width:100%;
+	margin-right:2%;
+	float: left;
+	display: block;
+}
+#t_m{
+	width: 75%;
+}
+#span10_title{
+	width:100%;
+}
+#deletemenu{
+	margin-top:10px;
+	display: block;
+}
+.smallname{
+	display:block;
+	height: 50px;
+	font-family: 华文行楷;
+	font-size:30px; 
+	line-height: 50px;
+}
+
+
+

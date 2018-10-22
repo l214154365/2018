@@ -1,0 +1,85 @@
+#title{
+    width: 600px;
+    margin: auto;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 100px;
+    letter-spacing: 4px;
+    font-family: 鍗庢枃琛屾シ;
+    color: #8d7d71;
+}
+body{
+    font-family:Arial, Verdana, "寰蒋闆呴粦","瀹嬩綋";
+    background: url("../images/login_bck.jpg") repeat;
+    background-size: cover ;
+}
+.span12{
+    width: 100%;
+}
+#title1{
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px ;
+    letter-spacing: 3px;
+    color: #333333;
+    font-family: 鍗庢枃琛屾シ;
+}
+#username,#password{
+    appearance: none;
+    outline:0;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 280px;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 0 auto 20px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #000000;
+    font-weight: 300;
+    transition-duration: 0.25s;
+}
+
+#password:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+#username:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+#password:focus {
+    background-color: white;
+    width: 320px;
+    color:#000;
+}
+#username:focus {
+    background-color: white;
+    width: 300px;
+    color:#000;
+}
+
+.button{
+    width: 316px;
+    height: 50px;
+    margin: auto;
+}
+
+#button_login{ /* 按钮美化 */
+	width:  316px; /* 宽度 */
+	height: 50px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background:#5599FF; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: white; /* 字体颜色 */
+	font-size: 17px; /* 字体大小 */
+	opacity: 0.5;
+}
+#button_login:hover { /* 鼠标移入按钮范围时改变颜色 */
+	background: #5599FF;
+
+}

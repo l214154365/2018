@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DeleteDao">
+
+<delete id="deletdp" parameterType="int">
+	DELETE FROM department WHERE Id = #{Id}
+</delete>
+	
+
+<delete id="deletdpson" parameterType="int">
+	DELETE FROM department WHERE department_id = #{Id}
+</delete>
+
+
+<delete id="deletd_clazz" parameterType="int">
+	DELETE FROM clazz WHERE Clazz_Id = #{clazz_id}
+</delete>
+
+<delete id="deletd_course" parameterType="int">
+	DELETE FROM course WHERE Course_id = #{course_id}
+</delete>
+
+<delete id="deletd_teacher" parameterType="String">
+	DELETE FROM teacher WHERE T_id = #{t_id}
+</delete>
+
+<delete id="deletd_teacher_course" parameterType="String">
+	DELETE FROM teacher_course WHERE Teacher_id = #{t_id}
+</delete>
+
+<delete id="deletd_teacher_role" parameterType="String">
+	DELETE FROM obj_role WHERE obj_Id = #{t_id}
+</delete>
+
+<delete id="deletd_student" parameterType="String">
+	DELETE FROM student WHERE S_id = #{t_id}
+</delete>
+
+<delete id="deletetask" parameterType="String">
+	delete from management where Id=#{id}
+</delete>
+</mapper>

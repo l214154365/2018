@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.InfoDao">
+
+<insert id="InsertStudent" parameterType="list" >
+    insert into student
+    (S_id,S_Name,Clazz_Id,S_Pass,S_type)
+    values
+    <foreach collection="list" item="it" separator=",">
+        (#{it.s_id},#{it.s_Name},#{it.clazz_id},#{it.s_pass},#{it.s_type})
+    </foreach>
+</insert>
+
+<insert id="InsertTeacher" parameterType="list" >
+    insert into teacher
+    (T_id,T_Name,D_id,T_Pass,T_type)
+    values
+    <foreach collection="list" item="it" separator=",">
+        (#{it.t_id},#{it.t_Name},#{it.d_id},#{it.t_Pass},#{it.t_type})
+    </foreach>
+</insert>
+
+
+<insert id="InsertStudentrole" parameterType="list" >
+    insert into obj_role
+    (obj_Id,role_id)
+    values
+    <foreach collection="list" item="it" separator=",">
+        (#{it.s_id},1)
+    </foreach>
+</insert>
+
+<insert id="InsertTeacherrole" parameterType="list" >
+    insert into obj_role
+    (obj_Id,role_id)
+    values
+    <foreach collection="list" item="it" separator=",">
+        (#{it.t_id},2)
+    </foreach>
+</insert>
+
+
+<insert id="InsertCourse" parameterType="list" >
+    insert into course
+    (Course_name,Course_id)
+    values
+    <foreach collection="list" item="it" separator=",">
+        (#{it.course_name},#{it.course_id})
+    </foreach>
+</insert>
+
+
+<insert id="InsertClazz" parameterType="list" >
+    insert into clazz
+    (Clazz_Name,Clazz_Id)
+    values
+    <foreach collection="list" item="it" separator=",">
+        (#{it.clazz_name},#{it.clazz_id})
+    </foreach>
+</insert>
+
+<insert id="Insertclazz_course" parameterType="list" >
+    insert into clazz_course
+    (Clazz_id,Course_id)
+    values
+    <foreach collection="list" item="it" separator=",">
+        (#{it.clazz_id},#{it.course_id})
+    </foreach>
+</insert>
+
+ <insert id="insertdp" parameterType="com.bean.Department" > 
+	INSERT INTO department(department_name,department_id,department_num) 
+	values(#{department_name},#{department_id},#{department_num})
+</insert>	
+
+
+
+<insert id="Insertdepart" parameterType="list" >
+    insert into department
+    (department_name,department_id,department_num)
+    values
+    <foreach collection="list" item="it" separator=",">
+        (#{it.department_name},#{it.department_id},#{it.department_num})
+    </foreach>
+</insert>
+
+<insert id="insertclazz"  parameterType="com.bean.Clazz">
+       insert into clazz
+       (Clazz_Name,Clazz_Id)
+       values(#{clazz_name},#{clazz_id})
+</insert>
+
+
+<insert id="insertcourse"  parameterType="com.bean.Course">
+       insert into course
+       (Course_name,Course_id)
+       values(#{course_name},#{course_id})
+</insert>
+
+<insert id="insertclacou" parameterType="com.bean.Clazz_course">
+       insert into clazz_course
+       (Clazz_id,Course_id)
+        values (#{clazz_id},#{course_id})
+</insert>
+
+<insert id="insertteacou" parameterType="com.bean.Teacher_course">
+       insert into teacher_course
+       (Teacher_id,Course_id)
+        values (#{teacher_id},#{course_id})
+</insert>
+
+<insert id="insertteacla" parameterType="com.bean.Teacher_Clazz">
+       insert into teacher_clazz
+       (Teacher_id,Clazz_id)
+       values (#{teacher_id},#{clazz_id})
+</insert>
+<insert id="inserttea_cou" parameterType="com.bean.Teacher_course">
+       insert into teacher_course
+       (Teacher_id,Course_id)
+        values 
+        <foreach collection="list" item="it" separator=",">
+        (#{it.teacher_id},#{it.course_id})
+    </foreach>
+</insert>
+
+<insert id="insertindicator" parameterType="com.bean.Indcator">
+        insert into indicator (F_id,Weight,In_type,Indicator_name) 
+        values (#{F_id},#{weight},#{in_type},#{indicator_name})
+</insert>
+
+<insert id="inserscsore" parameterType="com.bean.eva_oao">
+        insert into eva_oao (Total_score,Voted_id) 
+        values (#{Total_score},#{Voted_id})
+</insert>
+</mapper>

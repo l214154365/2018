@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.MenuDao">
+<select id="getmenu" parameterType="int" resultType="com.bean.Menu">
+select * from menu where role_menu in (select role_id from obj_role where obj_id=#{user_id})
+order by menu_id
+</select>
+
+<select id="querymenu" parameterType="int" resultType="com.bean.Menu">
+select * from menu where role_menu =#{role_menu}
+order by menu_id
+</select>
+
+
+<select id="gettreeview" parameterType="int" resultType="com.bean.Menu">
+select * from menu where role_menu =#{role_menu}
+order by menu_id
+</select>
+
+
+<update id="addmenu_id" parameterType="int">
+	   update menu
+	   set
+	   menu_id=menu_id+1 where menu_id>#{menu_id}-1 and role_menu=#{role_menu}
+	</update>
+	
+	
+	<select id="getmenu_id" parameterType="int" resultType="int">
+             SELECT MAX(menu_id) FROM menu where parent_id=#{parent_id}
+</select>
+
+<select id="panduan" parameterType="int" resultType="com.bean.Menu">
+             SELECT * FROM menu where parent_id=#{nav_id}-1 and role_menu=#{role_menu}
+</select>
+	
+	
+	<update id="addnav_di" parameterType="int">
+	    update menu
+	   set
+	   nav_id=nav_id+1 where nav_id>=#{nav_id} and role_menu=#{role_menu}
+	</update>
+	
+	
+	<update id="addparent_id" parameterType="int">
+	    update menu
+	   set
+	   parent_id=parent_id+1 where parent_id>=#{nav_id} and role_menu=#{role_menu}
+	</update>
+	
+	
+	
+ <insert id="insertmenu" parameterType="com.bean.Menu" > 
+	INSERT INTO menu(context,nav_id,parent_id,role_menu,menu_id,F_id) 
+	values(#{context},#{nav_id},#{parent_id},#{role_menu},#{menu_id},#{F_id})
+</insert>	
+
+
+
+
+<delete id="deletemenu" parameterType="int">
+	DELETE FROM menu WHERE Id = #{Id}
+	</delete>
+	
+<delete id="deletepid" parameterType="int">
+	DELETE FROM menu WHERE parent_id = #{nav_id}
+	</delete>
+	
+<update id="reducenav_di" parameterType="int">
+	    update menu
+	   set
+	   nav_id=nav_id-1 where nav_id>#{nav_id} and role_menu=#{role_menu}
+	</update>
+	
+<update id="reduceparent_id" parameterType="int">
+	    update menu
+	   set
+	   parent_id=parent_id-1 where parent_id>#{nav_id} and role_menu=#{role_menu}
+	</update>
+	
+	
+</mapper>
